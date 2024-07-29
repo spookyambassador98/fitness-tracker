@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/public/css/profile.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Quick Features</h2>
+            <ul>
+                <li><a href="#">Feature 1</a></li>
+                <li><a href="#">Feature 2</a></li>
+                <li><a href="#">Feature 3</a></li>
+                <li><a href="#">Feature 4</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1 class="greeting">Hello, <%= user.username %>!</h1>
+                <form id="logout-form" action="/api/logout" method="POST">
+                    <button type="submit" class="logout-button">Log Out</button>
+                </form>
+            </header>
+            <section class="profile-info">
+                <h2>Current Metrics:</h2>
+                <p><strong>Current Weight:</strong> <%= user.Current_weight %></p>
+                <p><strong>Desired Weight:</strong> <%= user.Desired_weight %></p>
+                <p><strong>Height:</strong> <%= user.Height %></p>
+                <p><strong>BMI:</strong> <%= user.BMI %></p>
+                <p><strong>Body Fat Percentage:</strong> <%= user.Body_Fat_Percentage %></p>
+                <p><strong>BMR:</strong> <%= user.BMR %></p>
+                <p><strong>RHR:</strong> <%= user.RHR %></p>
+                <p><strong>MHR:</strong> <%= user.MHR %></p>
+                <p><strong>LBM:</strong> <%= user.LBM %></p>
+                <p><strong>WHR:</strong> <%= user.WHR %></p>
+                <p><strong>VO2 Max:</strong> <%= user.VO2_Max %></p>
+                <p><strong>Blood Pressure:</strong> <%= user.Blood_Pressure %></p>
+                <p><strong>Hydration Level:</strong> <%= user.Hydration_Level %></p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
