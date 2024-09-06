@@ -20,9 +20,14 @@
         <main class="main-content">
             <header class="header">
                 <h1 class="greeting">Hello, <%= user.username %>!</h1>
-                <form id="logout-form" action="/api/logout" method="POST">
-                    <button type="submit" class="logout-button">Log Out</button>
-                </form>
+                <div class="header-buttons">
+                    <form id="report-form" action="/report" method="GET">
+                        <button type="submit" class="report-button">Report Change</button>
+                    </form>
+                    <form id="logout-form" action="/api/logout" method="POST">
+                        <button type="submit" class="logout-button">Log Out</button>
+                    </form>
+                </div>
             </header>
             <section class="profile-info">
                 <h2>Current Metrics:</h2>
@@ -40,6 +45,9 @@
                 <p><strong>Blood Pressure:</strong> <%= user.Blood_Pressure %></p>
                 <p><strong>Hydration Level:</strong> <%= user.Hydration_Level %></p>
             </section>
+            <form id="report-form" action="/report" method="GET">
+                <button type="submit" class="report-button">Report Change</button>
+            </form>
         </main>
     </div>
 </body>

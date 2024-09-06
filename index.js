@@ -49,6 +49,21 @@ app.get('/profile', async (req, res) => {
     }
 });
 
+app.get('/report', async (req, res) => {
+    if (req.session.user) {
+        try {
+            const user = await User.findById(req.session.user.id).exec();
+            res.render('report', { user });
+        } catch (error) {
+            res.status(500).send('Failed to fetch user data');
+        }
+    } else {
+        res.redirect('/');
+    }
+});
+
+
+
 
 // Connect to MongoDB
 const mongoose_uri = 'mongodb+srv://fitness:fitness2@fitness.c1mauug.mongodb.net/?retryWrites=true&w=majority&appName=fitness';
