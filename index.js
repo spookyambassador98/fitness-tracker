@@ -62,6 +62,19 @@ app.get('/report', async (req, res) => {
     }
 });
 
+// Add this new route before your MongoDB connection
+app.get('/feature1', async (req, res) => {
+    if (req.session.user) {
+        try {
+            const user = await User.findById(req.session.user.id).exec();
+            res.render('feature1', { user }); // We'll create this view next
+        } catch (error) {
+            res.status(500).send('Failed to fetch user data');
+        }
+    } else {
+        res.redirect('/');
+    }
+});
 
 
 
